@@ -1,4 +1,5 @@
 import requests
+from API_functions import showKeys, totalRepoCount
 
 
 def mainApi(url):
@@ -9,6 +10,8 @@ def mainApi(url):
 
     #API response
     res_dict = r.json()
+    showKeys(res_dict)
+    return res_dict
 
 
 
@@ -17,4 +20,6 @@ def mainApi(url):
 
 if __name__ == '__main__':
     url = 'http://api.github.com/search/repositories?q=language:python&sort=stars'
-    mainApi(url)
+    tempDict = mainApi(url)
+    totalRepoCount(tempDict)
+
