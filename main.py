@@ -1,5 +1,5 @@
 import requests
-from API_functions import showKeys, totalRepoCount
+from API_functions import showKeys, totalRepoCount, firstRepo, repoInformations
 
 
 def mainApi(url):
@@ -21,5 +21,6 @@ def mainApi(url):
 if __name__ == '__main__':
     url = 'http://api.github.com/search/repositories?q=language:python&sort=stars'
     tempDict = mainApi(url)
-    totalRepoCount(tempDict)
-
+    #totalRepoCount(tempDict)
+    #firstRepo(tempDict['items'])
+    repoInformations(tempDict['items'])
