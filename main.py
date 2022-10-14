@@ -1,16 +1,20 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import requests
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def mainApi(url):
+    #defining Api version
+    headers = {'Accept': 'application/vnd.github.v3+json'}
+    r = requests.get(url, headers= headers)
+    print(f'Status Code: {r.status_code}')
+
+    #API response
+    res_dict = r.json()
 
 
-# Press the green button in the gutter to run the script.
+
+
+
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    url = 'http://api.github.com/search/repositories?q=language:python&sort=stars'
+    mainApi(url)
