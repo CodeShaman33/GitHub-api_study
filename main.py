@@ -1,5 +1,6 @@
 import requests
 from API_functions import showKeys, totalRepoCount, firstRepo, repoInformations
+from  repos_visual import visuals
 
 
 def mainApi(url):
@@ -24,3 +25,5 @@ if __name__ == '__main__':
     #totalRepoCount(tempDict)
     #firstRepo(tempDict['items'])
     repoInformations(tempDict['items'])
+    visual = visuals(tempDict)
+    visual.createVisuals()
